@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
-Future<void> main() async {
-  runApp(const MainApp());
+import 'data/document.dart';
+import 'ui/document_screen.dart';
+
+void main() {
+  runApp(const DocumentApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class DocumentApp extends StatelessWidget {
+  const DocumentApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
+      home: DocumentScreen(
+        document: Document(),
       ),
     );
   }
