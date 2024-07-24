@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../data/document.dart';
-import '../ui/block_widget.dart';
 import '../ext/utils.dart';
+import 'block_widget.dart';
 
 class DocumentScreen extends StatelessWidget {
   final Document document;

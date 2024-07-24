@@ -4,5 +4,8 @@
         "editor.defaultFormatter": "Dart-Code.dart-code",
         "editor.formatOnSave": true
     },
-    "cmake.configureOnOpen": true
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+        "source.addMissingImports": "always"
+    },
 }
