@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 // import 'record_pattern/record_patten_app.dart';
-import 'sign_up/sign_up_app.dart';
+// import 'sign_up/sign_up_app.dart';
+import 'liker/liker_app.dart';
 
 void main() {
-  // const recordPattenApp = DocumentApp();
-  const signUpApp = SignUpApp();
+  // const myApp = DocumentApp();
+  // const myApp = SignUpApp();
+  const myApp = LikerApp();
 
-  runApp(signUpApp);
+  runApp(myApp);
 }
