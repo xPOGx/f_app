@@ -12,7 +12,7 @@ class LikerFavoritePage extends StatelessWidget {
     final appState = context.watch<LikerAppState>();
     final favorites = appState.favorites;
 
-    var body = favorites.isEmpty
+    final body = favorites.isEmpty
         ? const Center(child: Text("No favorites"))
         : const LikerFavoritesList();
 

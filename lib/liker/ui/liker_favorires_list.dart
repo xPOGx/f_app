@@ -17,18 +17,17 @@ class _LikerFavoritesListState extends State<LikerFavoritesList> {
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<LikerAppState>();
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     final favorites = appState.favorites;
 
-    appState.favoritesKey = _key;
-
     Widget buildItem(WordPair pair, {Function()? onPressed}) {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextButton.icon(
-          onPressed: onPressed ?? () => {},
-          icon: const Icon(Icons.delete_forever_outlined),
-          label: Text(pair.asLowerCase),
-        ),
+      return ListTile(
+        leading: IconButton(
+            onPressed: onPressed ?? () => {},
+            color: colorScheme.primary,
+            icon: const Icon(Icons.delete_forever_outlined)),
+        title: Text(pair.asCamelCase),
       );
     }
 
@@ -41,23 +40,24 @@ class _LikerFavoritesListState extends State<LikerFavoritesList> {
           ),
         ),
         Expanded(
-          child: AnimatedList(
+          child: AnimatedGrid(
             key: _key,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 4,
+            ),
             initialItemCount: favorites.length,
             itemBuilder: (context, index, animation) {
               final pair = favorites[index];
 
-              return SizeTransition(
-                  sizeFactor: animation,
-                  child: buildItem(pair,
-                      onPressed: () =>
-                          appState.removeFavorite(pair, buildItem(pair))));
+              return buildItem(
+                pair,
+                onPressed: () => appState.removeFavorite(pair, buildItem(pair)),
+              );
             },
           ),
         ),
       ],
     );
   }
-
-  st() => {};
 }

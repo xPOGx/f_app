@@ -24,7 +24,15 @@ class LikerAppState extends ChangeNotifier {
 
   void removeFavorite(WordPair pair, Widget widget) {
     if (favorites.contains(pair)) {
-      _removeKey(favoritesKey, pair, favorites, widget);
+      final index = favorites.indexOf(pair);
+      favorites.remove(pair);
+      (favoritesKey?.currentState as AnimatedGridState?)?.removeItem(index,
+          (BuildContext context, Animation<double> animation) {
+        return ScaleTransition(
+          scale: animation,
+          child: widget,
+        );
+      });
     }
   }
 
