@@ -33,6 +33,7 @@ class LikerAppState extends ChangeNotifier {
           child: widget,
         );
       });
+      notifyListeners();
     }
   }
 

@@ -21,6 +21,8 @@ class _LikerFavoritesListState extends State<LikerFavoritesList> {
     final colorScheme = theme.colorScheme;
     final favorites = appState.favorites;
 
+    appState.favoritesKey = _key;
+
     Widget buildItem(WordPair pair, {Function()? onPressed}) {
       return ListTile(
         leading: IconButton(
