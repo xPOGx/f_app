@@ -20,3 +20,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - lib/messenger/assets/avatar_1.png
+    - lib/messenger/assets/avatar_2.png
+    - lib/messenger/assets/avatar_3.png
+    - lib/messenger/assets/avatar_4.png
+    - lib/messenger/assets/avatar_5.png
+    - lib/messenger/assets/avatar_6.png
+    - lib/messenger/assets/avatar_7.png
+    - lib/messenger/assets/thumbnail_1.png
